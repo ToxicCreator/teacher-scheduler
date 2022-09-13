@@ -14,13 +14,18 @@
   background-color: #00000030;
 }
 
+.groupsBox {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 8px;
+  border-top: 1px solid lightgray;
+}
+
 .groups {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 8px;
-  border-top: 1px solid lightgray;
+  /* justify-content: flex-start; */
 }
 
 .group {

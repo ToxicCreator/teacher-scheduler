@@ -41,7 +41,7 @@ export default function LessonCard(props: Lesson) {
               item xs
               container
               rowSpacing={2}
-              columnSpacing={2}
+              columnSpacing={3}
               justifyContent="space-between"
             >
               <Grid item xs>
@@ -53,7 +53,7 @@ export default function LessonCard(props: Lesson) {
                   {name}
                 </Typography>
               </Grid>
-              <Grid item xs={3.5} sm={2} md={1}>
+              <Grid item xs={3.5} sm={2} md={1.5}>
                 <Chip 
                   sx={{
                     minWidth: 45,
@@ -65,7 +65,7 @@ export default function LessonCard(props: Lesson) {
                 />
               </Grid>
               <Grid item xs={12}>
-                <Typography sx={{ fontSize: 16 }}>
+                <Typography sx={{ fontSize: 17 }}>
                   ауд: {place}
                 </Typography>
               </Grid>
@@ -74,16 +74,33 @@ export default function LessonCard(props: Lesson) {
         </Grid>
       </div>
       {groups && (
-        <article className={styles.groups}>
-          {groups.map((group, i) => (
-            <span
-              key={i + group}
-              className={styles.group}
-            >
-              {group}
-            </span>
-          ))}
-        </article>
+        <section className={styles.groupsBox}>
+          <Grid container columnSpacing={0.5}>
+            <Grid item xs={2.5}>
+              <Typography
+                sx={{ 
+                  fontSize: 14,
+                  textAlign: 'center'
+                }}
+                color='text.secondary'
+              >
+                Группы:
+              </Typography>
+            </Grid>
+            <Grid item xs>
+              <article className={styles.groups}>
+                {groups.map((group, i) => (
+                  <span
+                    key={i + group}
+                    className={styles.group}
+                  >
+                    {group}
+                  </span>
+                ))}
+              </article>
+            </Grid>
+          </Grid>
+        </section>
       )}
       <TimeRunner
         start={LESSONS_TIME[lessonNumber].startDate}
