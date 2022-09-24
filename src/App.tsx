@@ -1,55 +1,31 @@
-import React from 'react';
-import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
-import WeekTabs from 'components/week-tabs/WeekTabs';
-import {LessonCard, type Lesson} from 'components/lesson-card';
+import Header from 'components/header/Header';
+import DayScreen from 'screens/DayScreen';
+import NavigationBar from 'components/navigation-bar/NavigationBar';
+import createTheme from '@mui/material/styles/createTheme';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
 
 
-const lessons = [
-  {
-    name: "кр. 17 н. Алгоритмы компонентов цифровой обработки данных",
-    type: "лек",
-    groups: ["БСБО-01-19", "БСБО-02-19", "БСБО-03-19", "ББСО-01-19", "ББСО-02-19"],
-    place: "251"
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 375,
+      md: 610,
+      lg: 1024,
+      xl: 1920,
+    },
   },
-  {},
-  {
-    name: "Технологическая (проектно-технологическая) практика",
-    type: "лаб",
-    groups: ["БСБО-01-19", "БСБО-02-19"],
-  },
-  {
-    name: "кр. 17 н. Алгоритмы компонентов цифровой обработки данных",
-    type: "пр",
-    place: "301",
-    groups: ["БСБО-01-19"],
-  },
-  {
-    name: "кр. 17 н. Алгоритмы компонентов цифровой обработки данных",
-    type: "пр",
-    groups: ["БСБО-01-19"],
-  },
-  {}
-]
+});
 
 function App() {
   return (
-    <div className="App">
-      <WeekTabs />
-      <Stack>
-        {
-          lessons.map((lesson, lessonNumber) => {
-            return (
-              <LessonCard
-                key={lessonNumber}
-                lessonNumber={lessonNumber}
-                {...lesson}
-              />
-            );
-          })
-        }
-      </Stack>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Header teacherName={"Русаков А.М."} />
+        <DayScreen />
+        <NavigationBar />
+      </div>
+    </ThemeProvider>
   );
 }
 
