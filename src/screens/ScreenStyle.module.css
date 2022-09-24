@@ -1,0 +1,11 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  box-shadow: 0 0 5px gray;
+  z-index: 1;
+}
+
+.content {
+  margin: 8px 0 64px;
+}
