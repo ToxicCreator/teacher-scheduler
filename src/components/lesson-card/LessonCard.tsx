@@ -10,7 +10,7 @@ import type {Lesson} from './types';
 import styles from './LessonCard.module.css';
 
 
-const unknown = '???'
+const unknown = 'неизвестно'
 const typeColor = {
   [LESSON_TYPES.LAB]: 'linear-gradient(to right top, #1fd48d, #00daad, #00dfca, #2ee2e1, #5be5f2)',
   [LESSON_TYPES.PRACTICE]: 'linear-gradient(to right top, #9d3203, #b24b04, #c66306, #d97c0a, #eb9612)',
@@ -26,8 +26,8 @@ export default function LessonCard(props: Lesson) {
     groups
   } = props;
   return (
-    <section className={styles.root}>
-      <div className={cc(styles.info, !name && styles.disebled)}>
+    <section className={cc(styles.root, !name && styles.disebled)}>
+      <div className={styles.info}>
         <Grid 
           container
           direction="row"
@@ -40,11 +40,11 @@ export default function LessonCard(props: Lesson) {
             <Grid
               item xs
               container
-              rowSpacing={2}
+              rowSpacing={1}
               columnSpacing={3}
               justifyContent="space-between"
             >
-              <Grid item xs>
+              <Grid item sm>
                 <Typography sx={{
                     fontSize: 16,
                     fontWeight: 500
@@ -53,10 +53,10 @@ export default function LessonCard(props: Lesson) {
                   {name}
                 </Typography>
               </Grid>
-              <Grid item xs={3.5} sm={2} md={1.5}>
+              <Grid item sm={3.8} md={2} lg={1.5}>
                 <Chip 
                   sx={{
-                    minWidth: 45,
+                    minWidth: 60,
                     fontWeight: 500,
                     backgroundImage: type && typeColor[type]
                   }}
@@ -102,10 +102,10 @@ export default function LessonCard(props: Lesson) {
           </Grid>
         </section>
       )}
-      <TimeRunner
+      {/* <TimeRunner
         start={LESSONS_TIME[lessonNumber].startDate}
         end={LESSONS_TIME[lessonNumber].endDate}
-      />
+      /> */}
     </section>
   );
 }

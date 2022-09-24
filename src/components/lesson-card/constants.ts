@@ -12,8 +12,8 @@ export const LESSONS_TIME: LessonTime[] = [
   {
     start: '09:00',
     end: '10:30',
-    startDate: createTime(18, 0),
-    endDate: createTime(22, 0)
+    startDate: createTime(9, 0),
+    endDate: createTime(10, 30)
   },
   {
     start: '10:40',
