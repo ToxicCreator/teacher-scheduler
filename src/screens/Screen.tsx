@@ -1,15 +1,21 @@
-import styles from './ScreenStyle.module.css';
+import cc from "classnames";
+import styles from "./ScreenStyle.module.css";
 
 
 type Props = {
-  header: React.ReactNode,
+  rootClassName?: string,
+  header?: React.ReactNode,
   children: React.ReactNode
 };
 
 function Screen(props: Props) {
-  const {header, children} = props;
+  const {
+    rootClassName,
+    header,
+    children
+  } = props;
   return (
-    <div className={styles.screenRoot}>
+    <div className={cc(styles.root, rootClassName)}>
       {header && (
         <section className={styles.header}>
           {header}
