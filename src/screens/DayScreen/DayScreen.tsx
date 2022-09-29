@@ -1,7 +1,7 @@
-import Stack from '@mui/material/Stack';
-import WeekTabs from 'components/week-tabs/WeekTabs';
-import {LessonCard, type Lesson} from 'components/lesson-card';
-import Screen from './Screen';
+import Stack from "@mui/material/Stack";
+import WeekTabs from "components/week-tabs/WeekTabs";
+import {LessonCard, type Lesson} from "components/lesson-card";
+import Screen from "../Screen";
 
 
 const lessons: Array<Lesson | {}> = [

@@ -1,10 +1,12 @@
 import {useState} from 'react';
+import {Link} from 'react-router-dom';
 import Paper from '@mui/material/Paper';
 import ExploreIcon from '@mui/icons-material/Explore';
 import TableRowsIcon from '@mui/icons-material/TableRows';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import {ROUTE_PATHS} from "mainConstants";
 
 
 function NavigationBar() {
@@ -24,9 +26,24 @@ function NavigationBar() {
           setCurrentScreen(newValue);
         }}
       >
-        <BottomNavigationAction label="День" icon={<TableRowsIcon />} />
-        <BottomNavigationAction label="Неделя" icon={<CalendarMonthIcon />} />
-        <BottomNavigationAction label="Свободные ауд." icon={<ExploreIcon />} />
+        <BottomNavigationAction
+          component={Link}
+          to={ROUTE_PATHS.DAY}
+          label="День"
+          icon={<TableRowsIcon />}
+        />
+        <BottomNavigationAction
+          component={Link}
+          to={ROUTE_PATHS.WEEK}
+          label="Неделя"
+          icon={<CalendarMonthIcon />}
+        />
+        <BottomNavigationAction
+          component={Link}
+          to={ROUTE_PATHS.AUDIENCE}
+          label="Поиск ауд."
+          icon={<ExploreIcon />}
+        />
       </BottomNavigation>
     </Paper>
   );

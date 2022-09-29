@@ -53,7 +53,7 @@ export default function LessonCard(props: Lesson) {
                   {name}
                 </Typography>
               </Grid>
-              <Grid item sm={3.8} md={2} lg={1.5}>
+              <Grid item sm={3.8} md={2}>
                 <Chip 
                   sx={{
                     minWidth: 60,

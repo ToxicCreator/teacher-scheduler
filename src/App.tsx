@@ -1,8 +1,7 @@
-import Header from 'components/header/Header';
-import DayScreen from 'screens/DayScreen';
-import NavigationBar from 'components/navigation-bar/NavigationBar';
+import {Outlet} from "react-router-dom";
 import createTheme from '@mui/material/styles/createTheme';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import MainLayout from "layouts/MainLayout";
 
 
 const theme = createTheme({
@@ -21,9 +20,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <Header teacherName={"Русаков А.М."} />
-        <DayScreen />
-        <NavigationBar />
+        <MainLayout>
+          <Outlet />
+        </MainLayout>
       </div>
     </ThemeProvider>
   );
