@@ -4,11 +4,11 @@ import {LESSONS_TIME} from '../constants';
 
 
 type Props = {
-  lessonNumber: number
+  number: number
 }
 
 export default function LessonTime(props: Props) {
-  const {lessonNumber} = props;
+  const {number} = props;
   const timeStyle = {
     textAlign: 'center' as const,
     fontSize: 16,
@@ -18,11 +18,11 @@ export default function LessonTime(props: Props) {
     <article>
       <Stack>
         <Typography sx={timeStyle}>
-          {LESSONS_TIME[lessonNumber].start}
+          {LESSONS_TIME[number].start}
         </Typography>
         <span style={timeStyle}>-</span>
         <Typography sx={timeStyle}>
-          {LESSONS_TIME[lessonNumber].end}
+          {LESSONS_TIME[number].end}
         </Typography>
       </Stack>
     </article>

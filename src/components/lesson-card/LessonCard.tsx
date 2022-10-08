@@ -6,7 +6,7 @@ import LessonTime from './lesson-time/LessonTime';
 import Stack from '@mui/material/Stack';
 import Chip from '@mui/material/Chip';
 import {LESSONS_TIME, LESSON_TYPES} from './constants';
-import type {Lesson} from './types';
+import type {LessonType} from "types";
 import styles from './LessonCard.module.css';
 
 
@@ -17,10 +17,10 @@ const typeColor = {
   [LESSON_TYPES.LECTURE]: 'linear-gradient(to right top, #1f66d4, #008ae9, #00abf1, #00c9f3, #5be5f2)'
 }
 
-export default function LessonCard(props: Lesson) {
+export default function LessonCard(props: LessonType) {
   const {
-    lessonNumber,
-    name = null,
+    number,
+    name,
     type,
     place = unknown,
     groups
@@ -34,7 +34,7 @@ export default function LessonCard(props: Lesson) {
           columnSpacing={3}
         >
           <Grid item xs={2.5}>
-            <LessonTime lessonNumber={lessonNumber} />
+            <LessonTime number={number} />
           </Grid>
           {name && (
             <Grid
@@ -103,8 +103,8 @@ export default function LessonCard(props: Lesson) {
         </section>
       )}
       {/* <TimeRunner
-        start={LESSONS_TIME[lessonNumber].startDate}
-        end={LESSONS_TIME[lessonNumber].endDate}
+        start={LESSONS_TIME[number].startDate}
+        end={LESSONS_TIME[number].endDate}
       /> */}
     </section>
   );

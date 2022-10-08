@@ -1,7 +1,7 @@
-import WeekTabs from "components/week-tabs/WeekTabs";
+import Accordions from "components/accordions/Accordions";
 import Lessons from "components/lessons/Lessons";
-import {LessonCard} from "components/lesson-card";
-import type {LessonType} from "types";
+import {WEEK_DAYS} from "mainConstants";
+import type {LessonType, DayLessonsType} from "types";
 import Screen from "../Screen";
 
 
@@ -21,7 +21,7 @@ const lessons: LessonType[] = [
   },
   {
     name: "кр. 17 н. Алгоритмы компонентов цифровой обработки данных",
-    number: 4,
+    number: 3,
     type: "пр",
     place: "301",
     groups: ["БСБО-01-19"],
@@ -31,24 +31,51 @@ const lessons: LessonType[] = [
     number: 5,
     type: "пр",
     groups: ["БСБО-01-19"],
+  },
+];
+
+const weekDayLessons: DayLessonsType[] = [
+  {
+    day: WEEK_DAYS.MONDAY,
+    lessons
+  },
+  {
+    day: WEEK_DAYS.TUESDAY,
+    lessons
+  },
+  {
+    day: WEEK_DAYS.WEDNESDAY,
+    lessons
+  },
+  {
+    day: WEEK_DAYS.THURSDAY,
+    lessons: []
+  },
+  {
+    day: WEEK_DAYS.FRIDAY,
+    lessons: []
+  },
+  {
+    day: WEEK_DAYS.SATURDAY,
+    lessons
   }
 ];
 
-// const lessonsMap = (lesson: LessonType) => {
-//   return (
-//     <LessonCard
-//       key={lesson.number}
-//       {...lesson}
-//     />
-//   );
-// }
-
-function DayScreen() {
+function WeekScreen() {
+  const items = weekDayLessons.map(
+    (dayLessons) => {
+      const {day, lessons} = dayLessons;
+      return {
+        title: `${day} (${lessons.length})`,
+        value: <Lessons lessons={lessons} />
+      };
+    }
+  );
   return (
-    <Screen header={<WeekTabs />} >
-      <Lessons lessons={lessons} />
+    <Screen>
+      <Accordions items={items} />
     </Screen>
   );
 }
 
-export default DayScreen;
+export default WeekScreen;
